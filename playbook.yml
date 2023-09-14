@@ -1,0 +1,8 @@
+- name: Download file from a file path
+  hosts: localhost
+  tasks:
+    - name: Download gitconfig file
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/edueo/config/main/gitconfig
+        dest: ~/.gitconfig
+        mode: "0644"
