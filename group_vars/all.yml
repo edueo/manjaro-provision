@@ -1,0 +1,12 @@
+browsers:
+  - firefox
+  - chromium
+  - brave-browser-beta
+
+development:
+   - base-devel
+   - make
+   
+editors:
+   - vim
+ 
