@@ -9,4 +9,13 @@ development:
    
 editors:
    - vim
- 
+   - neovim
+
+utilities:
+   - yay
+
+aur_packages:
+   - visual-studio-code-bin
+
+cloud_tools:
+   - aws-cli-v2

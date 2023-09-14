@@ -16,7 +16,6 @@
       become: true
       tags:
         - browsers
-
     - name: Install development tools
       community.general.pacman:
         name: '{{ development }}'
@@ -24,3 +23,34 @@
       become: true
       tags:
         - development-tools
+    - name: Install editors
+      community.general.pacman:
+        name: '{{ editors }}'
+        state: present
+      become: true
+      tags:
+        - editors
+    - name: Install utilities
+      community.general.pacman:
+        name: '{{ utilities }}'
+        state: present
+      become: true
+      tags:
+        - utilities
+    - name: Install cloud tools
+      community.general.pacman:
+        name: '{{ cloud_tools }}'
+        state: present
+      become: true
+      tags:
+        - cloud_tools
+
+    - name: Install LunarVim
+      ansible.builtin.shell: >-
+        LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s
+        https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      tags:
+        - lunarvim
