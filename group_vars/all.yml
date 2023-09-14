@@ -6,6 +6,9 @@ browsers:
 development:
    - base-devel
    - make
+   - tmux
+   - alacritty
+   - terminator
    
 editors:
    - vim
@@ -19,3 +22,6 @@ aur_packages:
 
 cloud_tools:
    - aws-cli-v2
+
+desktop_environment:
+   - awesome
