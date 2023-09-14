@@ -6,7 +6,6 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
-
 - name: Arquivos de configuração
   hosts: localhost
   tasks:
@@ -15,13 +14,16 @@
         url: 'https://raw.githubusercontent.com/edueo/config/main/gitconfig'
         dest: ~/.gitconfig
         mode: '644'
-
     - name: Download awesome config
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/rc.lua'
         dest: ~/.config/awesome/rc.lua
         mode: '644'
-
+    - name: Download bashrc config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/bashrc'
+        dest: ~/.bashrc
+        mode: '644'
 - name: Instalação de pacotes
   hosts: localhost
   tasks:
@@ -79,8 +81,17 @@
     - name: Clone ASDF repo
       ansible.builtin.git:
         repo: 'https://aur.archlinux.org/asdf-vm.git'
-        dest: ~/asdf-vm
+        dest: ~/.asdf-vm
         single_branch: 'yes'
         version: master
+      tags:
+        - asdf
+    - name: Install ASDF
+      ansible.builtin.command: makepkg -si --noconfirm
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      args:
+        chdir: ~/.asdf-vm/
       tags:
         - asdf

@@ -25,7 +25,11 @@ utilities:
    - copyq
    - pavucontrol-qt 
    - fish
-   
+   - bluez
+   - bluez-utils
+   - blueman
+   - openfortivpn
+
 aur_packages:
    - visual-studio-code-bin
 
