@@ -24,6 +24,7 @@ utilities:
    - network-manager-applet
    - copyq
    - pavucontrol-qt 
+   - fish
    
 aur_packages:
    - visual-studio-code-bin
