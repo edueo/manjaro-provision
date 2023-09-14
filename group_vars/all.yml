@@ -16,7 +16,15 @@ editors:
 
 utilities:
    - yay
-
+   - dmenu
+   - flameshot
+   - picom
+   - feh
+   - arandr
+   - network-manager-applet
+   - copyq
+   - pavucontrol-qt 
+   
 aur_packages:
    - visual-studio-code-bin
 
