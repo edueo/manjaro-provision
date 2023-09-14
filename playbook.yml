@@ -1,3 +1,12 @@
+- name: Cria diretórios de configuração
+  hosts: localhost
+  tasks:
+    - name: Cria awesome config dir
+      ansible.builtin.command: mkdir -p ~/.config/awesome/
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+
 - name: Arquivos de configuração
   hosts: localhost
   tasks:
@@ -5,7 +14,14 @@
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/gitconfig'
         dest: ~/.gitconfig
-        mode: '0644'
+        mode: '644'
+
+    - name: Download awesome config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/rc.lua'
+        dest: ~/.config/awesome/rc.lua
+        mode: '644'
+
 - name: Instalação de pacotes
   hosts: localhost
   tasks:
