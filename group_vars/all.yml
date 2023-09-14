@@ -9,6 +9,8 @@ development:
    - tmux
    - alacritty
    - terminator
+   - docker
+   - docker-compose
    
 editors:
    - vim
