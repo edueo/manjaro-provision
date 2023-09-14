@@ -1,8 +1,26 @@
-- name: Download file from a file path
+- name: Arquivos de configuração
   hosts: localhost
   tasks:
-    - name: Download gitconfig file
+    - name: Download gitconfig
       ansible.builtin.get_url:
-        url: https://raw.githubusercontent.com/edueo/config/main/gitconfig
+        url: 'https://raw.githubusercontent.com/edueo/config/main/gitconfig'
         dest: ~/.gitconfig
-        mode: "0644"
+        mode: '0644'
+- name: Instalação de pacotes
+  hosts: localhost
+  tasks:
+    - name: Install browsers
+      community.general.pacman:
+        name: '{{ browsers }}'
+        state: present
+      become: true
+      tags:
+        - browsers
+
+    - name: Install development tools
+      community.general.pacman:
+        name: '{{ development }}'
+        state: present
+      become: true
+      tags:
+        - development-tools
