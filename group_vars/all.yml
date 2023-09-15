@@ -11,6 +11,7 @@ development:
    - terminator
    - docker
    - docker-compose
+   - jq
    
 editors:
    - vim
@@ -32,6 +33,7 @@ utilities:
    - blueman
    - openfortivpn
    - pcmanfm
+   - unzip
 
 aur_packages:
    - visual-studio-code-bin
