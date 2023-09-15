@@ -6,6 +6,15 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+- name: Cria estrutura de diretório de repositórios
+  hosts: localhost
+  tasks:
+    - name: Repos github.com
+      ansible.builtin.command: mkdir -p /data/repos/{{ item }}
+      with_items: "{{ repos }}"
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
 - name: Arquivos de configuração
   hosts: localhost
   tasks:
@@ -86,6 +95,14 @@
         version: master
       tags:
         - asdf
+    - name: Clone personal repos
+      ansible.builtin.git:
+        repo: 'git@github.com:edueo/config.git'
+        dest: ~/repos/gitlab.com/edueo/config
+        single_branch: 'yes'
+        version: master
+      tags:
+        - personal_repos
     - name: Install ASDF
       ansible.builtin.command: makepkg -si --noconfirm
       register: command_result
