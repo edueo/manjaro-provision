@@ -45,3 +45,13 @@ desktop_environment:
 repos:
    - github.com
    - gitlab.com
+
+asdf_plugins:
+   - nodejs
+   - python
+   - golang
+   - php
+   - rust
+   - java
+   - kotlin
+   - ruby
