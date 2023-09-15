@@ -12,6 +12,7 @@ development:
    - docker
    - docker-compose
    - jq
+   - lazygit
    
 editors:
    - vim
