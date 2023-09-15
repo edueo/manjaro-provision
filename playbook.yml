@@ -95,14 +95,6 @@
         version: master
       tags:
         - asdf
-    - name: Clone personal repos
-      ansible.builtin.git:
-        repo: 'git@github.com:edueo/config.git'
-        dest: ~/repos/gitlab.com/edueo/config
-        single_branch: 'yes'
-        version: master
-      tags:
-        - personal_repos
     - name: Install ASDF
       ansible.builtin.command: makepkg -si --noconfirm
       register: command_result
@@ -112,3 +104,8 @@
         chdir: ~/.asdf-vm/
       tags:
         - asdf
+    - name: Enable docker service
+      ansible.builtin.systemd:
+        name: docker.service
+        enabled: true
+      become: true
