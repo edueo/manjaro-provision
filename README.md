@@ -7,3 +7,11 @@ Atualizar as mirrors do Arch, atualizar o sistema e garantir que o Ansible, git 
 ```
 sh pre-install.sh
 ```
+
+## Para provisionar
+
+```
+make provision
+```
+
+
