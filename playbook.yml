@@ -6,6 +6,12 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+    - name: Cria docker config dir
+      ansible.builtin.command: mkdir -p /etc/docker
+      become: true
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
 - name: Cria estrutura de diretório de repositórios
   hosts: localhost
   tasks:
@@ -104,8 +110,29 @@
         chdir: ~/.asdf-vm/
       tags:
         - asdf
+    - name: Docker daemon config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/docker/daemon.json'
+        dest: /etc/docker/daemon.json
+        mode: '644'
+      become: true
     - name: Enable docker service
       ansible.builtin.systemd:
         name: docker.service
         enabled: true
+      become: true
+    - name: Make sure a docker service unit is running
+      ansible.builtin.systemd:
+        state: started
+        name: docker.service
+      become: true
+    - name: Ensure group "docker" exists
+      ansible.builtin.group:
+        name: docker
+        state: present
+    - name: Adding eduardo to docker group
+      ansible.builtin.user:
+        name: eduardo
+        groups: docker
+        append: true
       become: true
