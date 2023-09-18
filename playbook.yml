@@ -151,3 +151,10 @@
         remote_src: true
       tags:
         - apache-maven
+    - name: Download and extract IntelliJ IDEA Community Edition
+      ansible.builtin.unarchive:
+        src: https://download.jetbrains.com/idea/ideaIC-2023.2.2.tar.gz
+        dest: ~/
+        remote_src: true
+      tags:
+        - jetbrains-intellij-idea

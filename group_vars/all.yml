@@ -36,6 +36,8 @@ utilities:
    - pcmanfm
    - unzip
    - obs-studio
+   - clipmenu
+   - ranger
 
 aur_packages:
    - visual-studio-code-bin
