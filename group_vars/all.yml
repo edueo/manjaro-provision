@@ -13,6 +13,7 @@ development:
    - docker-compose
    - jq
    - lazygit
+   - postgresql
    
 editors:
    - vim
