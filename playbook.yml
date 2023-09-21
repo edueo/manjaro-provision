@@ -11,6 +11,11 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+    - name: Cria LunarVim config dir
+      ansible.builtin.command: mkdir -p ~/.config/lvim/
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
     - name: Cria docker config dir
       ansible.builtin.command: mkdir -p /etc/docker
       become: true
@@ -48,6 +53,11 @@
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/bashrc'
         dest: ~/.bashrc
+        mode: '644'
+    - name: Download LunarVim config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/config.lua'
+        dest: ~/.config/lvim/config.lua
         mode: '644'
 - name: Instalação de pacotes
   hosts: localhost
