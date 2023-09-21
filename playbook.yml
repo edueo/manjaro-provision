@@ -158,3 +158,11 @@
         remote_src: true
       tags:
         - jetbrains-intellij-idea
+    - name: Install aur packages
+      ansible.builtin.command: yay -S {{ item }} --noconfirm
+      with_items: "{{ aur_packages }}"
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      tags:
+        - aur_packages

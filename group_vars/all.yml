@@ -42,6 +42,7 @@ utilities:
 
 aur_packages:
    - visual-studio-code-bin
+   - slack-desktop
 
 cloud_tools:
    - aws-cli-v2
