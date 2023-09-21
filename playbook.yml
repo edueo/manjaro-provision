@@ -6,6 +6,11 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+    - name: Cria alacritty config dir
+      ansible.builtin.command: mkdir -p ~/.config/alacritty/
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
     - name: Cria docker config dir
       ansible.builtin.command: mkdir -p /etc/docker
       become: true
@@ -33,6 +38,11 @@
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/rc.lua'
         dest: ~/.config/awesome/rc.lua
+        mode: '644'
+    - name: Download alacritty config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/alacritty.yml'
+        dest: ~/.config/alacritty/alacritty.yml
         mode: '644'
     - name: Download bashrc config
       ansible.builtin.get_url:
@@ -97,6 +107,14 @@
       ansible.builtin.git:
         repo: 'https://aur.archlinux.org/asdf-vm.git'
         dest: ~/.asdf-vm
+        single_branch: 'yes'
+        version: master
+      tags:
+        - asdf
+    - name: Clone Alacritty theme
+      ansible.builtin.git:
+        repo: 'https://github.com/alacritty/alacritty-theme'
+        dest: ~/.config/alacritty/themes
         single_branch: 'yes'
         version: master
       tags:
