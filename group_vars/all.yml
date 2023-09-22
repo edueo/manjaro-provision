@@ -43,6 +43,7 @@ utilities:
 aur_packages:
    - visual-studio-code-bin
    - slack-desktop
+   - postman-bin
 
 cloud_tools:
    - aws-cli-v2
