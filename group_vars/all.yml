@@ -39,11 +39,18 @@ utilities:
    - obs-studio
    - clipmenu
    - ranger
+   - catfish
+   - ppp
+   - calibre
+   - bitwarden
 
 aur_packages:
    - visual-studio-code-bin
    - slack-desktop
    - postman-bin
+   - dbeaver
+   - forticlient-vpn
+   - teams
 
 cloud_tools:
    - aws-cli-v2
