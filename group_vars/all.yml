@@ -44,6 +44,7 @@ utilities:
    - calibre
    - bitwarden
    - vlc
+   - nss
 
 aur_packages:
    - visual-studio-code-bin
