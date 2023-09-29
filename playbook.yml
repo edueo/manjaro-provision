@@ -158,10 +158,20 @@
       ansible.builtin.group:
         name: docker
         state: present
+    - name: Ensure group "vboxusers" exists
+      ansible.builtin.group:
+        name: vboxusers
+        state: present
     - name: Adding eduardo to docker group
       ansible.builtin.user:
         name: eduardo
         groups: docker
+        append: true
+      become: true
+    - name: Adding eduardo to vboxusers group
+      ansible.builtin.user:
+        name: eduardo
+        groups: vboxusers
         append: true
       become: true
     - name: Install ASDF plugins
