@@ -1,0 +1,6 @@
+[my-task]
+  command = 'echo'
+  args = ['hello world']
+
+[list-dir]
+  command = 'ls'

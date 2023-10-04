@@ -22,6 +22,13 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+    - name: Cria SpaceVim autoload dir
+      ansible.builtin.command: mkdir -p ~/.SpaceVim/autoload/
+      become: true
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+
 - name: Cria estrutura de diretório de repositórios
   hosts: localhost
   tasks:
@@ -58,6 +65,16 @@
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/config.lua'
         dest: ~/.config/lvim/config.lua
+        mode: '644'
+    - name: Download SpaceVim config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/spacevim/init.toml'
+        dest: ~/.SpaceVim.d/init.toml
+        mode: '644'
+    - name: Download SpaceVim autoload config
+      ansible.builtin.get_url:
+        url: 'https://raw.githubusercontent.com/edueo/config/main/spacevim/autoload/myspacevim.vim'
+        dest: ~/.SpaceVim.d/autoload/myspacevim.vim
         mode: '644'
 - name: Instalação de pacotes
   hosts: localhost
@@ -113,6 +130,15 @@
       changed_when: '''successfully'' in command_result.stdout'
       tags:
         - lunarvim
+    - name: Install SpaceVim
+      ansible.builtin.shell: >-
+        bash <(curl -sLf
+        https://spacevim.org/install.sh)
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      tags:
+        - spacevim
     - name: Clone ASDF repo
       ansible.builtin.git:
         repo: 'https://aur.archlinux.org/asdf-vm.git'

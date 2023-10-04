@@ -14,6 +14,7 @@ development:
    - jq
    - lazygit
    - postgresql
+   - ripgrep
    
 editors:
    - vim
@@ -47,6 +48,9 @@ utilities:
    - nss
    - virtualbox
    - linux61-virtualbox-host-modules
+   - transmission-cli
+   - transmission-gtk 
+   - the_silver_searcher
 
 aur_packages:
    - visual-studio-code-bin
