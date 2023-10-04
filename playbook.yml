@@ -23,7 +23,7 @@
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
     - name: Cria SpaceVim autoload dir
-      ansible.builtin.command: mkdir -p ~/.SpaceVim/autoload/
+      ansible.builtin.command: mkdir -p ~/.SpaceVim.d/autoload/
       become: true
       register: command_result
       failed_when: command_result.rc != 0
