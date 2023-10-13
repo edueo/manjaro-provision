@@ -223,7 +223,7 @@
       tags:
         - jetbrains-intellij-idea
     - name: Install aur packages
-      ansible.builtin.command: yay -Syu {{ item }} --noconfirm
+      ansible.builtin.command: yay -Sy {{ item }} --noconfirm
       with_items: "{{ aur_packages }}"
       register: command_result
       failed_when: command_result.rc != 0

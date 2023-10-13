@@ -11,10 +11,12 @@ development:
    - terminator
    - docker
    - docker-compose
+   - docker-buildx
    - jq
    - lazygit
    - postgresql
    - ripgrep
+   - vagrant
    
 editors:
    - vim
@@ -51,6 +53,8 @@ utilities:
    - transmission-cli
    - transmission-gtk 
    - the_silver_searcher
+   - tk
+   - thunderbird
 
 aur_packages:
    - visual-studio-code-bin
