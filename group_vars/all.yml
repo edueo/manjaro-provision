@@ -55,6 +55,8 @@ utilities:
    - the_silver_searcher
    - tk
    - thunderbird
+   - pandoc-cli
+   - texlive
 
 aur_packages:
    - visual-studio-code-bin
