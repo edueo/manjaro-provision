@@ -147,6 +147,16 @@
         version: master
       tags:
         - asdf
+    - name: Install autoflake
+      community.general.pipx:
+        name: autoflake
+      tags:
+        - autoflake
+    - name: Install coverage
+      community.general.pipx:
+        name: coverage
+      tags:
+        - coverage
     - name: Clone Alacritty theme
       ansible.builtin.git:
         repo: 'https://github.com/alacritty/alacritty-theme'

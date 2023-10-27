@@ -17,6 +17,13 @@ development:
    - postgresql
    - ripgrep
    - vagrant
+   - python-setuptools
+   - python-pip
+   - python-pylint
+   - yapf
+   - python-black
+   - python-lsp-server
+   - python-pipx
    
 editors:
    - vim
@@ -86,3 +93,7 @@ asdf_plugins:
    - java
    - kotlin
    - ruby
+
+pip_packages:
+  - autoflake
+  - coverage
