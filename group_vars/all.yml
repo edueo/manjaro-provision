@@ -57,6 +57,7 @@ utilities:
    - thunderbird
    - pandoc-cli
    - texlive
+   - firefox-developer-edition
 
 aur_packages:
    - visual-studio-code-bin
