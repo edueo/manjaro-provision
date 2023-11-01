@@ -157,6 +157,11 @@
         name: coverage
       tags:
         - coverage
+    - name: Install doq
+      community.general.pipx:
+        name: doq
+      tags:
+        - doq
     - name: Clone Alacritty theme
       ansible.builtin.git:
         repo: 'https://github.com/alacritty/alacritty-theme'
