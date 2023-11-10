@@ -66,6 +66,7 @@ utilities:
    - pandoc-cli
    - texlive
    - firefox-developer-edition
+   - autojump
 
 aur_packages:
    - visual-studio-code-bin
