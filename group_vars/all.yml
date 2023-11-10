@@ -24,6 +24,7 @@ development:
    - python-black
    - python-lsp-server
    - python-pipx
+   - tree
    
 editors:
    - vim
