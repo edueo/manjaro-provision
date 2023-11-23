@@ -75,6 +75,7 @@ aur_packages:
    - forticlient-vpn
    - teams
    - autojump
+   - mingo
 
 cloud_tools:
    - aws-cli-v2
