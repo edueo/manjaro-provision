@@ -66,6 +66,8 @@ utilities:
    - pandoc-cli
    - texlive
    - firefox-developer-edition
+   - lighttpd
+   - guake
 
 aur_packages:
    - visual-studio-code-bin
@@ -76,6 +78,8 @@ aur_packages:
    - teams
    - autojump
    - mingo
+   - mongosh
+   - mongodb-compass
 
 cloud_tools:
    - aws-cli-v2
