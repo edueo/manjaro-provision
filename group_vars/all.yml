@@ -69,14 +69,13 @@ utilities:
    - lighttpd
    - guake
    - httpie
-   - snap
+   - snapd
 
 aur_packages:
    - visual-studio-code-bin
    - slack-desktop
    - postman-bin
    - dbeaver
-   - forticlient-vpn
    - teams
    - autojump
    - mingo
