@@ -25,6 +25,7 @@ development:
    - python-lsp-server
    - python-pipx
    - tree
+   - graphviz
    
 editors:
    - vim
@@ -81,6 +82,7 @@ aur_packages:
    - mingo
    - mongosh
    - mongodb-compass
+   - typora
 
 cloud_tools:
    - aws-cli-v2
