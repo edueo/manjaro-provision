@@ -1,6 +1,11 @@
 - name: Cria diretórios de configuração
   hosts: localhost
   tasks:
+    - name: Cria terminator config dir
+      ansible.builtin.command: mkdir -p ~/.config/terminator/plugins
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
     - name: Cria awesome config dir
       ansible.builtin.command: mkdir -p ~/.config/awesome/
       register: command_result
@@ -139,6 +144,16 @@
       changed_when: '''successfully'' in command_result.stdout'
       tags:
         - spacevim
+    - name: Install Terminator themes
+      ansible.builtin.shell: >-
+        bash <(wget 
+        https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py")
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      tags:
+        - terminator-themes
+
     - name: Clone ASDF repo
       ansible.builtin.git:
         repo: 'https://aur.archlinux.org/asdf-vm.git'
