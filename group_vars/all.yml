@@ -71,6 +71,9 @@ utilities:
    - guake
    - httpie
    - snapd
+   - zoxide
+   - mysql-workbench
+   - vivaldi
 
 aur_packages:
    - visual-studio-code-bin
