@@ -74,6 +74,7 @@ utilities:
    - zoxide
    - mysql-workbench
    - vivaldi
+   - nix
 
 aur_packages:
    - visual-studio-code-bin
@@ -82,10 +83,12 @@ aur_packages:
    - dbeaver
    - teams
    - autojump
-   - mingo
    - mongosh
    - mongodb-compass
    - typora
+
+aur_packages_to_remove:
+   - mingo
 
 cloud_tools:
    - aws-cli-v2

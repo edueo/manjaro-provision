@@ -252,6 +252,14 @@
         remote_src: true
       tags:
         - jetbrains-intellij-idea
+    - name: Remove aur packages
+      ansible.builtin.command: yay -R {{ item }} --noconfirm
+      with_items: "{{ aur_packages_to_remove }}"
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
+      tags:
+        - aur_packages
     - name: Install aur packages
       ansible.builtin.command: yay -Sy {{ item }} --noconfirm
       with_items: "{{ aur_packages }}"
