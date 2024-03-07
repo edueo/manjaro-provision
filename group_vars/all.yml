@@ -75,6 +75,7 @@ utilities:
    - mysql-workbench
    - vivaldi
    - nix
+   - pwgen
 
 aur_packages:
    - visual-studio-code-bin
