@@ -67,11 +67,9 @@ utilities:
    - pandoc-cli
    - texlive
    - firefox-developer-edition
-   - lighttpd
    - guake
    - httpie
    - snapd
-   - zoxide
    - mysql-workbench
    - vivaldi
    - nix
@@ -79,14 +77,13 @@ utilities:
 
 aur_packages:
    - visual-studio-code-bin
-   - slack-desktop
    - postman-bin
    - dbeaver
-   - teams
    - autojump
    - mongosh
    - mongodb-compass
    - typora
+   - obsidian
 
 aur_packages_to_remove:
    - mingo

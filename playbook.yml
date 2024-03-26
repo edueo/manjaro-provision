@@ -27,6 +27,12 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
+    - name: Cria SpaceVim dir
+      ansible.builtin.command: mkdir -p ~/.SpaceVim.d
+      become: true
+      register: command_result
+      failed_when: command_result.rc != 0
+      changed_when: '''successfully'' in command_result.stdout'
     - name: Cria SpaceVim autoload dir
       ansible.builtin.command: mkdir -p ~/.SpaceVim.d/autoload/
       become: true
@@ -238,20 +244,6 @@
       changed_when: '''successfully'' in command_result.stdout'
       tags:
         - asdf
-    - name: Download and extract maven
-      ansible.builtin.unarchive:
-        src: https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
-        dest: ~/
-        remote_src: true
-      tags:
-        - apache-maven
-    - name: Download and extract IntelliJ IDEA Community Edition
-      ansible.builtin.unarchive:
-        src: https://download.jetbrains.com/idea/ideaIC-2023.2.2.tar.gz
-        dest: ~/
-        remote_src: true
-      tags:
-        - jetbrains-intellij-idea
     - name: Remove aur packages
       ansible.builtin.command: yay -R {{ item }} --noconfirm
       with_items: "{{ aur_packages_to_remove }}"
