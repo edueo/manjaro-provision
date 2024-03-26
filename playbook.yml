@@ -236,14 +236,6 @@
         groups: vboxusers
         append: true
       become: true
-    - name: Install ASDF plugins
-      ansible.builtin.command: asdf plugin add {{ item }}
-      with_items: "{{ asdf_plugins }}"
-      register: command_result
-      failed_when: command_result.rc != 0
-      changed_when: '''successfully'' in command_result.stdout'
-      tags:
-        - asdf
     - name: Remove aur packages
       ansible.builtin.command: yay -R {{ item }} --noconfirm
       with_items: "{{ aur_packages_to_remove }}"
