@@ -74,6 +74,7 @@ utilities:
    - vivaldi
    - nix
    - pwgen
+   - obsidian
 
 aur_packages:
    - visual-studio-code-bin
