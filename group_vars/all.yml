@@ -75,6 +75,8 @@ utilities:
    - nix
    - pwgen
    - obsidian
+   - openvpn
+   - networkmanager-openvpn
 
 aur_packages:
    - visual-studio-code-bin
