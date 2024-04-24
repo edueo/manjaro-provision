@@ -26,10 +26,12 @@ development:
    - python-pipx
    - tree
    - graphviz
+   - re2c
    
 editors:
    - vim
    - neovim
+   - gedit
 
 utilities:
    - yay
