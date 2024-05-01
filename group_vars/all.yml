@@ -81,6 +81,7 @@ utilities:
    - openvpn
    - networkmanager-openvpn
    - openssl-1.1
+   - icu
 
 aur_packages:
    - visual-studio-code-bin
