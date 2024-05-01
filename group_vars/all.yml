@@ -9,6 +9,7 @@ development:
    - tmux
    - alacritty
    - terminator
+   - kitty
    - docker
    - docker-compose
    - docker-buildx
@@ -79,6 +80,7 @@ utilities:
    - obsidian
    - openvpn
    - networkmanager-openvpn
+   - openssl-1.1
 
 aur_packages:
    - visual-studio-code-bin
