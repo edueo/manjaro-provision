@@ -2,7 +2,6 @@ browsers:
   - firefox
   - chromium
   - brave-browser-beta
-  - microsoft-edge-stable-bin
 
 development:
    - base-devel
@@ -93,6 +92,7 @@ aur_packages:
    - mongodb-compass
    - typora
    - obsidian
+   - microsoft-edge-stable-bin
 
 aur_packages_to_remove:
    - mingo
