@@ -2,6 +2,7 @@ browsers:
   - firefox
   - chromium
   - brave-browser-beta
+  - microsoft-edge-stable-bin
 
 development:
    - base-devel
