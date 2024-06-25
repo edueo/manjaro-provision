@@ -82,6 +82,7 @@ utilities:
    - networkmanager-openvpn
    - openssl-1.1
    - icu
+   - zellij
 
 aur_packages:
    - visual-studio-code-bin
