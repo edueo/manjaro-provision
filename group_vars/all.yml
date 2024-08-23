@@ -83,6 +83,7 @@ utilities:
    - openssl-1.1
    - icu
    - zellij
+   - direnv
 
 aur_packages:
    - visual-studio-code-bin
@@ -94,6 +95,7 @@ aur_packages:
    - typora
    - obsidian
    - microsoft-edge-stable-bin
+   - librewolf-bin
 
 aur_packages_to_remove:
    - mingo
