@@ -1,0 +1,3 @@
+---
+
+- import_playbook: lazyvim.yml

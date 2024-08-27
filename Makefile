@@ -1,6 +1,6 @@
 .PHONY: provision
 provision:
-	ansible-playbook --ask-become-pass playbook.yml
+	ansible-playbook main.yml -vv -e "{ laptop_mode: True }" -e "local_username=$(id -un)" -K
 
 .PHONY: lint
 lint:

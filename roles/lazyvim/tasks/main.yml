@@ -1,0 +1,83 @@
+---
+
+- block:
+   - name: install lazyvim from repository
+     ansible.builtin.git:
+      repo: "{{ lazyvim_repo }}"
+      dest: ~/.config/nvim
+      single_branch: 'yes'
+      version: main
+     tags:
+      - lazyvim
+  become: yes
+  become_user: "{{ local_username }}"
+
+
+# options.lua
+- block:
+  - name: check options.lua exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/nvim/lua/config/options.lua"
+    register: optionsdotlua
+
+  - name: backup options.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/nvim/lua/config/options.lua"
+     dest: "~{{local_username}}/.config/nvim/lua/config/options.lua.orig"
+    when: optionsdotlua.stat.exists
+
+  - name: copy the options.lua to nvim config folder
+    ansible.builtin.copy:
+      src: lua/config/options.lua
+      dest: "~{{local_username}}/.config/nvim/lua/config/options.lua"
+      force: yes
+  become: yes
+  become_user: "{{ local_username }}"
+
+# lazy.lua
+- block:
+  - name: check lazy.lua exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/nvim/lua/config/lazy.lua"
+    register: lazydotlua
+
+  - name: backup lazy.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/nvim/lua/config/lazy.lua"
+     dest: "~{{local_username}}/.config/nvim/lua/config/lazy.lua.orig"
+    when: lazydotlua.stat.exists
+
+  - name: copy the lazy.lua to nvim config folder
+    ansible.builtin.copy:
+      src: lua/config/lazy.lua
+      dest: "~{{local_username}}/.config/nvim/lua/config/lazy.lua"
+      force: yes
+  become: yes
+  become_user: "{{ local_username }}"
+
+# keymaps.lua
+- block:
+  - name: check keymaps.lua exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua"
+    register: keymapsdotlua
+
+  - name: backup keymaps.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua"
+     dest: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua.orig"
+    when: keymapsdotlua.stat.exists
+
+  - name: copy the keymaps.lua to nvim config folder
+    ansible.builtin.copy:
+      src: lua/config/keymaps.lua
+      dest: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua"
+      force: yes
+  become: yes
+  become_user: "{{ local_username }}"
+
+
+
+
+
+

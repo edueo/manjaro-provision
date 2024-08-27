@@ -72,21 +72,7 @@
         url: 'https://raw.githubusercontent.com/edueo/config/main/bashrc'
         dest: ~/.bashrc
         mode: '644'
-    - name: Download LunarVim config
-      ansible.builtin.get_url:
-        url: 'https://raw.githubusercontent.com/edueo/config/main/config.lua'
-        dest: ~/.config/lvim/config.lua
-        mode: '644'
-    - name: Download SpaceVim config
-      ansible.builtin.get_url:
-        url: 'https://raw.githubusercontent.com/edueo/config/main/spacevim/init.toml'
-        dest: ~/.SpaceVim.d/init.toml
-        mode: '644'
-    - name: Download SpaceVim autoload config
-      ansible.builtin.get_url:
-        url: 'https://raw.githubusercontent.com/edueo/config/main/spacevim/autoload/myspacevim.vim'
-        dest: ~/.SpaceVim.d/autoload/myspacevim.vim
-        mode: '644'
+
 - name: Instalação de pacotes
   hosts: localhost
   tasks:
@@ -132,24 +118,6 @@
       become: true
       tags:
         - desktop_enviroment
-    - name: Install LunarVim
-      ansible.builtin.shell: >-
-        LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s
-        https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-      register: command_result
-      failed_when: command_result.rc != 0
-      changed_when: '''successfully'' in command_result.stdout'
-      tags:
-        - lunarvim
-    - name: Install SpaceVim
-      ansible.builtin.shell: >-
-        bash <(curl -sLf
-        https://spacevim.org/install.sh)
-      register: command_result
-      failed_when: command_result.rc != 0
-      changed_when: '''successfully'' in command_result.stdout'
-      tags:
-        - spacevim
     - name: Install Terminator themes
       ansible.builtin.shell: >-
         bash <(wget 
@@ -159,6 +127,15 @@
       changed_when: '''successfully'' in command_result.stdout'
       tags:
         - terminator-themes
+    
+    - name: Install LazyVim
+      ansible.builtin.git:
+        repo: 'https://github.com/LazyVim/starter'
+        dest: ~/.config/nvim
+        single_branch: 'yes'
+        version: main
+      tags:
+        - lazyvim
 
     - name: Clone ASDF repo
       ansible.builtin.git:
@@ -237,7 +214,7 @@
         append: true
       become: true
     - name: Install aur packages
-      ansible.builtin.command: yay -Sy {{ item }} --noconfirm
+      ansible.builtin.command: yay -Syy {{ item }} --noconfirm
       with_items: "{{ aur_packages }}"
       register: command_result
       failed_when: command_result.rc != 0
