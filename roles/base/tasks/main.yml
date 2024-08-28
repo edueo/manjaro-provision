@@ -1,0 +1,14 @@
+---
+
+- name: Install base base developer tools
+  community.general.pacman:
+    name: '{{ base_developer_tools }}'
+    state: present
+
+- name: Install base utilities
+  community.general.pacman:
+    name: '{{ base_utilities }}'
+    state: present
+
+
+

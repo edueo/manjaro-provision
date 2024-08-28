@@ -52,7 +52,7 @@
       src: lua/config/lazy.lua
       dest: "~{{local_username}}/.config/nvim/lua/config/lazy.lua"
       force: yes
-  become: yes
+  become: true
   become_user: "{{ local_username }}"
 
 # keymaps.lua
@@ -73,9 +73,51 @@
       src: lua/config/keymaps.lua
       dest: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua"
       force: yes
-  become: yes
+  become: true
   become_user: "{{ local_username }}"
 
+
+# colorscheme.lua
+- block:
+  - name: check colorscheme plugin exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/nvim/lua/plugins/colorscheme.lua"
+    register: colorschemedotlua
+
+  - name: backup colorscheme.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/nvim/lua/plugins/colorscheme.lua"
+     dest: "~{{local_username}}/.config/nvim/lua/plugins/colorscheme.lua.orig"
+    when: colorschemedotlua.stat.exists
+
+  - name: copy the colorscheme.lua to nvim plugins folder
+    ansible.builtin.copy:
+      src: lua/plugins/colorscheme.lua
+      dest: "~{{local_username}}/.config/nvim/lua/plugins/colorscheme.lua"
+      force: yes
+  become: true
+  become_user: "{{ local_username }}"
+
+# nvim-soil.lua
+- block:
+  - name: check nvim-soil plugin exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/nvim/lua/plugins/nvim-soil.lua"
+    register: nvimsoildotlua
+
+  - name: backup nvimsoil.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/nvim/lua/plugins/nvim-soil.lua"
+     dest: "~{{local_username}}/.config/nvim/lua/plugins/nvim-soil.lua.orig"
+    when: nvimsoildotlua.stat.exists
+
+  - name: copy the nvim-soil.lua to nvim plugins folder
+    ansible.builtin.copy:
+      src: lua/plugins/nvim-soil.lua
+      dest: "~{{local_username}}/.config/nvim/lua/plugins/nvim-soil.lua"
+      force: yes
+  become: true
+  become_user: "{{ local_username }}"
 
 
 

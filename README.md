@@ -6,8 +6,7 @@ Atualizar as mirrors do Arch, atualizar o sistema e garantir que o Ansible, git 
 ```
 sh pre-install.sh
 ```
-mkdir -p ~/.SpaceVim.d
-mkdir -p ~/.SpaceVim.d/autoload
+
 
 ## Para provisionar
 
