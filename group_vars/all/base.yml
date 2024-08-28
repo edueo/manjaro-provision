@@ -29,6 +29,7 @@ base_developer_tools:
   - zeal
 
 base_utilities:
+  - nsxiv
   - tree
   - autojump
   - yay

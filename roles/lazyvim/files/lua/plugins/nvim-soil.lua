@@ -20,10 +20,9 @@ return {
             -- This is a default implementation of using nsxiv to open the resultant image
             -- Edit the string to use your preferred app to open the image (as if it were a command line)
             -- Some examples:
-            -- return "feh " .. img
             -- return "xdg-open " .. img
             execute_to_open = function(img) 
-                return "nsxiv -b " .. img
+                return "feh " .. img
             end
         }
     }
