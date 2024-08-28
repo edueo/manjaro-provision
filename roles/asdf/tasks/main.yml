@@ -1,0 +1,28 @@
+---
+
+- block:
+  
+  - name: Clone ASDF repo
+    ansible.builtin.git:
+      repo: "{{ asdf_repo }}"
+      dest: "~{{ local_username }}/.asdf"
+      version: v0.14.1
+    become: false
+    become_user: "{{ local_username }}"
+
+  - name: Make ASDF available in .bashrc
+    ansible.builtin.lineinfile:
+      path: "~{{ local_username }}/.bashrc"
+      line: "{{ item }}"
+      create: yes
+    with_items: 
+      - . "$HOME/.asdf/asdf.sh"
+      - . "$HOME/.asdf/completions/asdf.bash"
+    become: false
+    become_user: "{{ local_username }}"
+
+  - name: Install ASDF plugins
+    ansible.builtin.command: asdf plugin add {{ item }}
+    with_items: "{{ asdf_plugins }}"
+    become: false
+    become_user: "{{ local_username }}"
