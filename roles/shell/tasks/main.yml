@@ -1,0 +1,23 @@
+---
+
+# bashrc
+- block:
+  - name: check if bashrc exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.bashrc"
+    register: dotbashrc
+
+  - name: backup bashrc if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.bashrc"
+     dest: "~{{local_username}}/.bashrc.orig"
+    when: dotbashrc.stat.exists
+
+  - name: copy the bashrc to home folder
+    ansible.builtin.copy:
+      src: bashrc
+      dest: "~{{local_username}}/.bashrc"
+      force: yes
+  become: true
+  become_user: "{{ local_username }}"
+
