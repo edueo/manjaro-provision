@@ -1,0 +1,34 @@
+---
+
+- name: Install Awesome 
+  ansible.builtin.command: yay -Syy awesome --noconfirm
+  register: command_result
+  failed_when: command_result.rc != 0
+  changed_when: '''successfully'' in command_result.stdout'
+  tags:
+    - awesome
+  become: false
+  become_user: "{{ local_username }}"
+
+
+# awesome config 
+- block:
+  - name: check if rc.lua exists
+    ansible.builtin.stat:
+     path: "~{{local_username}}/.config/awesome/rc.lua"
+    register: rcdotlua
+
+  - name: backup rc.lua if it exists
+    ansible.builtin.copy:
+     src: "~{{local_username}}/.config/awesome/rc.lua"
+     dest: "~{{local_username}}/.config/awesome/rc.lua.orig"
+    when: rcdotlua.stat.exists
+
+  - name: copy the rc.lua to config folder
+    ansible.builtin.copy:
+      src: rc.lua
+      dest: "~{{local_username}}/.config/awesome/rc.lua"
+      force: yes
+  become: true
+  become_user: "{{ local_username }}"
+
