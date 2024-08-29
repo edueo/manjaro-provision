@@ -5,5 +5,6 @@
 - import_playbook: awesome.yml
 - import_playbook: asdf.yml
 - import_playbook: lazyvim.yml
+- import_playbook: lazydocker.yml
 - import_playbook: code.yml
 

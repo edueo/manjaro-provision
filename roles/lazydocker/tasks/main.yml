@@ -1,0 +1,19 @@
+---
+
+- block:
+  
+  - name: Install lazydocker asdf plugin
+    ansible.builtin.command: asdf plugin add lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+    become: false
+    become_user: "{{ local_username }}"
+  
+  - name: Install lazydocker 
+    ansible.builtin.command: asdf install lazydocker latest
+    become: false
+    become_user: "{{ local_username }}"
+   
+  - name: Set lazydocker globally
+    ansible.builtin.command: asdf global lazydocker latest
+    become: false
+    become_user: "{{ local_username }}"
+
