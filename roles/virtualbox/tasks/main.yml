@@ -62,13 +62,13 @@
     become: True
     become_user: "{{ local_username }}"
 
-  - name: Install extension pack  
-    ansible.builtin.shell: echo 'y' | vboxmanage extpack install --replace "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack"
-    args:
-     chdir: "~{{ local_username }}"
-    become: False
-    become_user: "{{ local_username }}"
-   
-  
-    
-    
+  # - name: Install extension pack  
+  #   ansible.builtin.shell: vboxmanage extpack install --replace "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack" --accept-license=33d7284dc4a0ece381196fda3cfe2ed0e1e8e7ed7f27b9a9ebc4ee22e24bd23c
+  #   args:
+  #    chdir: "~{{ local_username }}"
+  #   become: False
+  #   become_user: "{{ local_username }}"
+  #
+  #
+  #
+  #
