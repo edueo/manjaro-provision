@@ -1,0 +1,74 @@
+---
+
+- block:
+  
+  - name: Get Manjaro version 
+    ansible.builtin.shell: uname -r 
+    register: command_result
+
+  - name: search virtualbox pacman package
+    ansible.builtin.shell: pacman -Ss virtualbox-host-modules | grep linux{{command_result.stdout[0:3] | replace('.', '') }}-virtualbox-host-modules 
+    register: result 
+    failed_when: command_result.rc != 0
+    changed_when: '''successfully'' in command_result.stdout'
+    become: True
+    become_user: "{{local_username}}"
+  
+  - name: Install virtualbox-host-modules
+    community.general.pacman:
+     name: linux{{command_result.stdout[0:3] | replace('.', '') }}-virtualbox-host-modules
+     state: present
+  
+  - name: Install virtualbox
+    community.general.pacman:
+     name: virtualbox
+     state: present
+  
+  - name: Install virtualbox-guest-utils
+    community.general.pacman:
+     name: virtualbox-guest-utils
+     state: present
+  
+  - name: Reload virtualbox virtualbox modules 
+    ansible.builtin.shell: vboxreload
+    become: True
+    become_user: "{{ local_username }}"
+
+  - name: get extension pack version  
+    ansible.builtin.shell: vboxmanage -v | cut -dr -f1 
+    register: extension_pack
+  
+  - name: Download Extension Pack 
+    ansible.builtin.shell: >-
+        bash <(wget 
+        https://download.virtualbox.org/virtualbox/{{ extension_pack.stdout }}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack -O "~{{local_username}}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack")
+    become: False
+    become_user: "{{ local_username }}"
+    register: command_result
+    failed_when: command_result.rc != 0
+    changed_when: '''successfully'' in command_result.stdout'
+    tags:
+      - virtualbox-extension-pack 
+  
+  - name: get hash value to install extension  
+    ansible.builtin.shell: sha256sum "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack"
+    args:
+     chdir: "~{{ local_username}}"
+    register: extension_sha256
+  
+   
+  - name: Adiciona usuário no grupo do virtualbox 
+    ansible.builtin.shell: usermod -aG vboxusers $USER
+    become: True
+    become_user: "{{ local_username }}"
+
+  - name: Install extension pack  
+    ansible.builtin.shell: echo 'y' | vboxmanage extpack install --replace "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack"
+    args:
+     chdir: "~{{ local_username }}"
+    become: False
+    become_user: "{{ local_username }}"
+   
+  
+    
+    

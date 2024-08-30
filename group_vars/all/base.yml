@@ -57,8 +57,9 @@ base_utilities:
   - bitwarden
   - vlc
   - nss
-  - virtualbox
-  - linux61-virtualbox-host-modules
+  # - virtualbox
+  # - linux61-virtualbox-host-modules
+  # - linux66-virtualbox-host-modules
   - transmission-cli
   - transmission-gtk 
   - the_silver_searcher
@@ -76,4 +77,5 @@ base_utilities:
   - icu
   - direnv
   - rclone
+  - dkms
  
