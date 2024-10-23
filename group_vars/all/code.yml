@@ -26,4 +26,5 @@ code_extensions:
   - hashicorp.terraform
   - ms-vscode-remote.remote-containers
   - bmewburn.vscode-intelephense-client
+  - ms-vsliveshare.vsliveshare
 

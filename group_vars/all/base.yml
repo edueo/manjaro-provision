@@ -78,4 +78,6 @@ base_utilities:
   - direnv
   - rclone
   - dkms
+  - mypaint
+  - discord
  
