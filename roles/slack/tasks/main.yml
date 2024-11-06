@@ -1,0 +1,15 @@
+---
+
+- block:
+  - name: Install Slack desktop
+    ansible.builtin.command: yay -Syy {{ item }} --noconfirm
+    with_items: "{{ slack_packages }}"
+    register: command_result
+    failed_when: command_result.rc != 0
+    changed_when: '''successfully'' in command_result.stdout'
+    tags:
+      - aur_packages
+    become: False
+    become_user: "{{ local_username }}"
+
+
