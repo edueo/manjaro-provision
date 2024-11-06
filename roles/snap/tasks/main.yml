@@ -1,0 +1,7 @@
+---
+- block:
+    - name: Install snap applications
+      ansible.builtin.command: snap install {{ item }}
+      with_items: "{{ snap_apps }}"
+      become: true
+      become_user: "{{ local_username }}"
