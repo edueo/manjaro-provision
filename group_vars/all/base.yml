@@ -1,5 +1,4 @@
 ---
-
 base_developer_tools:
   - base-devel
   - make
@@ -40,7 +39,7 @@ base_utilities:
   - arandr
   - network-manager-applet
   - copyq
-  - pavucontrol-qt 
+  - pavucontrol-qt
   - fish
   - bluez
   - bluez-utils
@@ -61,7 +60,7 @@ base_utilities:
   # - linux61-virtualbox-host-modules
   # - linux66-virtualbox-host-modules
   - transmission-cli
-  - transmission-gtk 
+  - transmission-gtk
   - the_silver_searcher
   - tk
   - pandoc-cli
@@ -80,4 +79,6 @@ base_utilities:
   - dkms
   - mypaint
   - discord
- 
+  - rdesktop
+  - remmina
+  - freerdp
