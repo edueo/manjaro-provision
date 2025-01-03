@@ -34,41 +34,9 @@
     become: True
     become_user: "{{ local_username }}"
 
-  - name: get extension pack version  
-    ansible.builtin.shell: vboxmanage -v | cut -dr -f1 
-    register: extension_pack
-  
-  - name: Download Extension Pack 
-    ansible.builtin.shell: >-
-        bash <(wget 
-        https://download.virtualbox.org/virtualbox/{{ extension_pack.stdout }}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack -O "~{{local_username}}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack")
-    become: False
-    become_user: "{{ local_username }}"
-    register: command_result
-    failed_when: command_result.rc != 0
-    changed_when: '''successfully'' in command_result.stdout'
-    tags:
-      - virtualbox-extension-pack 
-  
-  - name: get hash value to install extension  
-    ansible.builtin.shell: sha256sum "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack"
-    args:
-     chdir: "~{{ local_username}}"
-    register: extension_sha256
-  
-   
+    
   - name: Adiciona usuário no grupo do virtualbox 
     ansible.builtin.shell: usermod -aG vboxusers $USER
     become: True
     become_user: "{{ local_username }}"
 
-  # - name: Install extension pack  
-  #   ansible.builtin.shell: vboxmanage extpack install --replace "Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack.stdout }}.vbox-extpack" --accept-license=33d7284dc4a0ece381196fda3cfe2ed0e1e8e7ed7f27b9a9ebc4ee22e24bd23c
-  #   args:
-  #    chdir: "~{{ local_username }}"
-  #   become: False
-  #   become_user: "{{ local_username }}"
-  #
-  #
-  #
-  #

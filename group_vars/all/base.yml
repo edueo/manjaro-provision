@@ -23,14 +23,13 @@ base_developer_tools:
   - neovim
   - gedit
   - zellij
-  - aws-cli-v2
   - plantuml
   - zeal
 
 base_utilities:
   - nsxiv
   - tree
-  - autojump
+  #- autojump
   - yay
   - dmenu
   - flameshot

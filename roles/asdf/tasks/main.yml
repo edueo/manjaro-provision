@@ -21,8 +21,3 @@
     become: false
     become_user: "{{ local_username }}"
 
-  - name: Install ASDF plugins
-    ansible.builtin.command: asdf plugin add {{ item }}
-    with_items: "{{ asdf_plugins }}"
-    become: false
-    become_user: "{{ local_username }}"

@@ -27,8 +27,7 @@
   - name: copy the rc.lua to config folder
     ansible.builtin.copy:
       src: rc.lua
-      dest: "~{{local_username}}/.config/awesome/rc.lua"
-      force: yes
-  become: true
+      dest: "~{{local_username}}/.config/awesome/rc.lua" 
+      force: true
   become_user: "{{ local_username }}"
 

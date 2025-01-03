@@ -7,9 +7,10 @@
       dest: ~/.config/nvim
       single_branch: 'yes'
       version: main
+      force: yes
      tags:
       - lazyvim
-  become: yes
+  become: false
   become_user: "{{ local_username }}"
 
 
@@ -31,7 +32,7 @@
       src: lua/config/options.lua
       dest: "~{{local_username}}/.config/nvim/lua/config/options.lua"
       force: yes
-  become: yes
+  become: false
   become_user: "{{ local_username }}"
 
 # lazy.lua
@@ -52,7 +53,7 @@
       src: lua/config/lazy.lua
       dest: "~{{local_username}}/.config/nvim/lua/config/lazy.lua"
       force: yes
-  become: true
+  become: false
   become_user: "{{ local_username }}"
 
 # keymaps.lua
@@ -73,7 +74,7 @@
       src: lua/config/keymaps.lua
       dest: "~{{local_username}}/.config/nvim/lua/config/keymaps.lua"
       force: yes
-  become: true
+  become: false
   become_user: "{{ local_username }}"
 
 
@@ -95,7 +96,7 @@
       src: lua/plugins/colorscheme.lua
       dest: "~{{local_username}}/.config/nvim/lua/plugins/colorscheme.lua"
       force: yes
-  become: true
+  become: false
   become_user: "{{ local_username }}"
 
 # nvim-soil.lua
@@ -116,7 +117,7 @@
       src: lua/plugins/nvim-soil.lua
       dest: "~{{local_username}}/.config/nvim/lua/plugins/nvim-soil.lua"
       force: yes
-  become: true
+  become: false
   become_user: "{{ local_username }}"
 
 

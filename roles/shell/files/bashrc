@@ -116,7 +116,7 @@ shopt -s histappend
 
 # autojump
 #
-. /usr/share/autojump/autojump.bash
+#. /usr/share/autojump/autojump.bash
 
 mkcd() {
 	mkdir -p -- "$1" && cd -P -- "$1"
