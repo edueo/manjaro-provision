@@ -81,3 +81,4 @@ base_utilities:
   - rdesktop
   - remmina
   - freerdp
+  - xorg-xinput
