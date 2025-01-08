@@ -86,3 +86,4 @@ base_utilities:
   - texlive-latexextra
   - texlive-fontsrecommended
   - texstudio
+  - qemu-full
