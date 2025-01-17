@@ -87,3 +87,5 @@ base_utilities:
   - texlive-fontsrecommended
   - texstudio
   - qemu-full
+  - fzf
+  - vivaldi

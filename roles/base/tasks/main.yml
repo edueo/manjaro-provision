@@ -1,4 +1,7 @@
 ---
+- name: Run the equivalent of "pacman -Su" as a separate step
+  community.general.pacman:
+    upgrade: true
 
 - name: Install base base developer tools
   community.general.pacman:
