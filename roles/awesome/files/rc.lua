@@ -54,7 +54,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -362,7 +362,7 @@ globalkeys = gears.table.join(
 
 	-- browser
 	awful.key({ modkey }, "b", function()
-		awful.util.spawn("vivaldi")
+		awful.util.spawn("chromium")
 	end, { description = "run web browser", group = "applications" }),
 
 	-- flameshot

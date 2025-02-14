@@ -74,7 +74,6 @@ utilities:
    - httpie
    - snapd
    - mysql-workbench
-   - vivaldi
    - nix
    - pwgen
    - obsidian

@@ -88,4 +88,4 @@ base_utilities:
   - texstudio
   - qemu-full
   - fzf
-  - vivaldi
+  - chromium
