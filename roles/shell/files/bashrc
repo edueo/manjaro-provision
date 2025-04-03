@@ -126,3 +126,6 @@ mkcd() {
 eval "$(direnv hook bash)"
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
+
+# Intellij
+export PATH="$PATH:/home/ealencar/Downloads/idea-IC-243.26053.27/bin"
