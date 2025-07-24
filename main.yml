@@ -1,7 +1,6 @@
 ---
 - import_playbook: base.yml
 - import_playbook: shell.yml
-- import_playbook: awesome.yml
 - import_playbook: asdf.yml
 - import_playbook: lazyvim.yml
 #- import_playbook: lazydocker.yml

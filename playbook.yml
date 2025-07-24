@@ -6,11 +6,6 @@
       register: command_result
       failed_when: command_result.rc != 0
       changed_when: '''successfully'' in command_result.stdout'
-    - name: Cria awesome config dir
-      ansible.builtin.command: mkdir -p ~/.config/awesome/
-      register: command_result
-      failed_when: command_result.rc != 0
-      changed_when: '''successfully'' in command_result.stdout'
     - name: Cria alacritty config dir
       ansible.builtin.command: mkdir -p ~/.config/alacritty/
       register: command_result
@@ -56,11 +51,6 @@
       ansible.builtin.get_url:
         url: 'https://raw.githubusercontent.com/edueo/config/main/gitconfig'
         dest: ~/.gitconfig
-        mode: '644'
-    - name: Download awesome config
-      ansible.builtin.get_url:
-        url: 'https://raw.githubusercontent.com/edueo/config/main/rc.lua'
-        dest: ~/.config/awesome/rc.lua
         mode: '644'
     - name: Download alacritty config
       ansible.builtin.get_url:

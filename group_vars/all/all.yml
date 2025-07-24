@@ -103,7 +103,8 @@ cloud_tools:
    #- aws-cli-v2
 
 desktop_environment:
-   - awesome
+   - gnome
+   - gnome-extra
 
 repos:
    - github.com
