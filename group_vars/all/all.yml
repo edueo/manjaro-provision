@@ -4,121 +4,123 @@ browsers:
   - brave-browser-beta
 
 development:
-   - base-devel
-   - make
-   - tmux
-   - alacritty
-   - terminator
-   - kitty
-   - docker
-   - docker-compose
-   - docker-buildx
-   - jq
-   - lazygit
-   - postgresql
-   - ripgrep
-   - vagrant
-   - python-setuptools
-   - python-pip
-   - python-pylint
-   - yapf
-   - python-black
-   - python-lsp-server
-   - python-pipx
-   - tree
-   - graphviz
-   - re2c
-   
+  - base-devel
+  - make
+  - tmux
+  - alacritty
+  - terminator
+  - tilix
+  - kitty
+  - docker
+  - docker-compose
+  - docker-buildx
+  - jq
+  - lazygit
+  - postgresql
+  - ripgrep
+  - vagrant
+  - python-setuptools
+  - python-pip
+  - python-pylint
+  - yapf
+  - python-black
+  - python-lsp-server
+  - python-pipx
+  - tree
+  - graphviz
+  - re2c
+
 editors:
-   - vim
-   - neovim
-   - gedit
+  - vim
+  - neovim
+  - gedit
 
 utilities:
-   - yay
-   - dmenu
-   - flameshot
-   - picom
-   - feh
-   - arandr
-   - network-manager-applet
-   - copyq
-   - pavucontrol-qt 
-   - fish
-   - bluez
-   - bluez-utils
-   - blueman
-   - openfortivpn
-   - pcmanfm
-   - unzip
-   - obs-studio
-   - clipmenu
-   - ranger
-   - catfish
-   - ppp
-   - calibre
-   - bitwarden
-   - vlc
-   - nss
-   - virtualbox
-   - linux61-virtualbox-host-modules
-   - transmission-cli
-   - transmission-gtk 
-   - the_silver_searcher
-   - tk
-   - thunderbird
-   - pandoc-cli
-   - texlive
-   - firefox-developer-edition
-   - guake
-   - httpie
-   - snapd
-   - mysql-workbench
-   - nix
-   - pwgen
-   - obsidian
-   - openvpn
-   - networkmanager-openvpn
-   - openssl-1.1
-   - icu
-   - zellij
-   - direnv
+  - yay
+  - dmenu
+  - flameshot
+  - picom
+  - feh
+  - arandr
+  - network-manager-applet
+  - copyq
+  - pavucontrol-qt
+  - fish
+  - bluez
+  - bluez-utils
+  - blueman
+  - openfortivpn
+  - pcmanfm
+  - unzip
+  - obs-studio
+  - clipmenu
+  - ranger
+  - catfish
+  - ppp
+  - calibre
+  - bitwarden
+  - vlc
+  - nss
+  - virtualbox
+  - linux61-virtualbox-host-modules
+  - transmission-cli
+  - transmission-gtk
+  - the_silver_searcher
+  - tk
+  - thunderbird
+  - pandoc-cli
+  - texlive
+  - firefox-developer-edition
+  - guake
+  - httpie
+  - snapd
+  - mysql-workbench
+  - nix
+  - pwgen
+  - obsidian
+  - openvpn
+  - networkmanager-openvpn
+  - openssl-1.1
+  - icu
+  - zellij
+  - direnv
 
 aur_packages:
-   - visual-studio-code-bin
-   - postman-bin
-   - dbeaver
-   #- autojump
-   - mongosh
-   - mongodb-compass
-   - typora
-   - obsidian
-   #- microsoft-edge-stable-bin
-   #- librewolf-bin
+  - visual-studio-code-bin
+  - postman-bin
+  - dbeaver
+  #- autojump
+  - mongosh
+  - mongodb-compass
+  - typora
+  - obsidian
+  - tilix
+  #- microsoft-edge-stable-bin
+  #- librewolf-bin
 
 aur_packages_to_remove:
-   - mingo
+  - mingo
 
 cloud_tools:
-   #- aws-cli-v2
+  #- aws-cli-v2
 
 desktop_environment:
-   - gnome
-   - gnome-extra
+  - gnome
+  - gnome-extra
 
 repos:
-   - github.com
-   - gitlab.com
+  - github.com
+  - gitlab.com
 
 asdf_plugins:
-   - nodejs
-   - python
-   - golang
-   - php
-   - rust
-   - java
-   - kotlin
-   - ruby
+  - nodejs
+  - python
+  - golang
+  - php
+  - rust
+  - java
+  - kotlin
+  - ruby
 
 pip_packages:
   - autoflake
